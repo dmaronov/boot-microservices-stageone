@@ -1,0 +1,34 @@
+info:
+  component: Zuul Server
+
+server:
+  port: 8080
+
+zuul:
+  routes:
+    notifications-service-one:
+      path: /zuulUrl/one/**
+      serviceId: service-one
+    notifications-service-two:
+      path: /zuulUrl/two/**
+      serviceId: service-two
+    notifications-service-three:
+      path: /zuulUrl/three/**
+      serviceId: service-three
+    notification-service:
+      path: /zuulUrl/service/**
+      serviceId: service
+    zuul-gateway:
+     path: /self/**
+
+hystrix:
+  command:
+    service:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+
+ribbon:
+   ConnectTimeout: 6000
+   ReadTimeout: 6000

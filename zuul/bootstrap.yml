@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: zuul-gateway
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+
+ribbon:
+  consul:
+    enabled: true
